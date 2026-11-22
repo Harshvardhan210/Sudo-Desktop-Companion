@@ -1,0 +1,43 @@
+{
+  "aliases": {
+    "browser": "chrome"
+  },
+  "usage": {
+    "actions": {
+      "open_app": 4,
+      "volume_up": 3,
+      "get_time": 2,
+      "qa": 5,
+      "volume_down": 1,
+      "open_notes": 1,
+      "show_tasks": 2,
+      "add_task": 2
+    },
+    "commands": {
+      "open notepad": 1,
+      "turn it up": 1,
+      "tell me the time": 1,
+      "should fire up notepad": 1,
+      "fire up notepad": 1,
+      "what is your name": 5,
+      "open chrome": 1,
+      "what time is it": 1,
+      "volume down": 1,
+      "volume up": 2,
+      "open notes": 1,
+      "open list": 1,
+      "show my tasks": 1,
+      "todo sev kar do": 1,
+      "task 5": 1
+    }
+  },
+  "learned_examples": 1,
+  "updated": "2026-11-22 13:57:31",
+  "learned": [
+    {
+      "intent": "open_app",
+      "example": "fire up {slot}",
+      "when": "2026-11-22 13:46:36"
+    }
+  ]
+}

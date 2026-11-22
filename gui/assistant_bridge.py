@@ -9,6 +9,7 @@ except ImportError:
     QMediaDevices = None
 
 from assistant import audio_devices
+from assistant.brain import brain
 from assistant.voice_input import listen_continuously
 from assistant.command_handler import process_command
 from assistant.voice_output import speak
@@ -346,6 +347,8 @@ class AssistantBridge(QObject):
             worker.expect_answer(PENDING_SECONDS)
         elif todos.has_pending():
             worker.expect_answer(TODO_PENDING_SECONDS)
+        elif brain.has_pending():
+            worker.expect_answer(brain.expect_seconds())
         elif routines.expect_seconds():
             worker.expect_answer(routines.expect_seconds())
         elif notes.active:

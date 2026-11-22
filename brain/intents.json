@@ -1,0 +1,327 @@
+{
+  "open_app": {
+    "label": "open an app, website or folder",
+    "command": "open {slot}",
+    "examples": [
+      "open {slot}",
+      "launch {slot}",
+      "start {slot}",
+      "run {slot}",
+      "open {slot} app",
+      "launch {slot} application",
+      "i want to open {slot}",
+      "can you open {slot} for me",
+      "{slot} kholo",
+      "{slot} open karo",
+      "{slot} chalu karo",
+      "fire up {slot}"
+    ]
+  },
+  "close_app": {
+    "label": "close an app",
+    "command": "close {slot}",
+    "examples": [
+      "close {slot}",
+      "quit {slot}",
+      "exit {slot}",
+      "close {slot} app",
+      "{slot} band karo",
+      "{slot} close karo"
+    ]
+  },
+  "volume_up": {
+    "label": "turn the volume up",
+    "command": "volume up",
+    "examples": [
+      "volume up",
+      "increase volume",
+      "increase the volume",
+      "turn up the volume",
+      "raise the volume",
+      "make it louder",
+      "louder",
+      "sound up",
+      "turn it up",
+      "volume badhao",
+      "awaaz badhao",
+      "awaaz tez karo"
+    ]
+  },
+  "volume_down": {
+    "label": "turn the volume down",
+    "command": "volume down",
+    "examples": [
+      "volume down",
+      "decrease volume",
+      "decrease the volume",
+      "turn down the volume",
+      "lower the volume",
+      "make it quieter",
+      "quieter",
+      "softer",
+      "turn it down",
+      "volume kam karo",
+      "awaaz kam karo"
+    ]
+  },
+  "mute": {
+    "label": "mute the sound",
+    "command": "mute volume",
+    "examples": [
+      "mute",
+      "mute volume",
+      "mute the sound",
+      "silence",
+      "awaaz band karo"
+    ]
+  },
+  "unmute": {
+    "label": "unmute the sound",
+    "command": "unmute volume",
+    "examples": [
+      "unmute",
+      "unmute volume",
+      "unmute the sound",
+      "sound on",
+      "turn the sound back on",
+      "awaaz chalu karo"
+    ]
+  },
+  "get_time": {
+    "label": "tell the time",
+    "command": "what time is it",
+    "examples": [
+      "what time is it",
+      "tell me the time",
+      "current time",
+      "time please",
+      "whats the time",
+      "what is the time",
+      "time batao",
+      "kitne baje hain"
+    ]
+  },
+  "get_date": {
+    "label": "tell today's date",
+    "command": "what is today's date",
+    "examples": [
+      "what is todays date",
+      "todays date",
+      "what day is it",
+      "tell me the date",
+      "what is the date today",
+      "whats the date",
+      "aaj ki date batao"
+    ]
+  },
+  "battery_status": {
+    "label": "check the battery",
+    "command": "battery status",
+    "examples": [
+      "battery status",
+      "check battery",
+      "how much battery is left",
+      "battery level",
+      "battery percentage",
+      "battery kitni hai"
+    ]
+  },
+  "google_search": {
+    "label": "search the web",
+    "command": "google {slot}",
+    "examples": [
+      "google {slot}",
+      "search the web for {slot}",
+      "search google for {slot}",
+      "look up {slot}",
+      "web search {slot}",
+      "search online for {slot}",
+      "search internet for {slot}",
+      "{slot} google karo"
+    ]
+  },
+  "youtube_play": {
+    "label": "play a video or song",
+    "command": "play {slot}",
+    "examples": [
+      "play {slot}",
+      "play {slot} on youtube",
+      "put on {slot}",
+      "i want to listen to {slot}",
+      "i want to watch {slot}",
+      "{slot} bajao"
+    ]
+  },
+  "youtube_search": {
+    "label": "search YouTube",
+    "command": "search youtube for {slot}",
+    "examples": [
+      "search youtube for {slot}",
+      "find {slot} on youtube",
+      "search {slot} on youtube",
+      "youtube search {slot}"
+    ]
+  },
+  "file_search": {
+    "label": "find a file",
+    "command": "find {slot}",
+    "examples": [
+      "find {slot}",
+      "find my {slot}",
+      "where is {slot}",
+      "where is my {slot}",
+      "search my files for {slot}",
+      "locate {slot}",
+      "look for {slot} file",
+      "{slot} dhundo"
+    ]
+  },
+  "add_task": {
+    "label": "add a to-do task",
+    "command": "add task {slot}",
+    "examples": [
+      "add task {slot}",
+      "add a task {slot}",
+      "add a task to {slot}",
+      "add {slot} to my to do list",
+      "new task {slot}",
+      "create task {slot}",
+      "todo {slot}"
+    ]
+  },
+  "show_tasks": {
+    "label": "show my to-do list",
+    "command": "show my tasks",
+    "examples": [
+      "show my tasks",
+      "show tasks",
+      "what is on my to do list",
+      "open my to do list",
+      "list my tasks",
+      "tasks dikhao"
+    ]
+  },
+  "add_note": {
+    "label": "take a note",
+    "command": "add a note",
+    "examples": [
+      "add a note",
+      "take a note",
+      "write a note",
+      "new note",
+      "start taking notes",
+      "note likho"
+    ]
+  },
+  "open_notes": {
+    "label": "open my notes",
+    "command": "open notes",
+    "examples": [
+      "open notes",
+      "show my notes",
+      "open my notes",
+      "show notes",
+      "notes dikhao"
+    ]
+  },
+  "save_notes": {
+    "label": "save my notes",
+    "command": "save notes",
+    "examples": [
+      "save notes",
+      "save my notes",
+      "finish notes",
+      "notes save karo"
+    ]
+  },
+  "set_reminder": {
+    "label": "set a reminder",
+    "command": "remind me in {slot}",
+    "examples": [
+      "remind me in {slot}",
+      "set a reminder for {slot}",
+      "set a reminder in {slot}",
+      "set reminder for {slot}",
+      "remind me after {slot}",
+      "create a reminder in {slot}"
+    ]
+  },
+  "run_routine": {
+    "label": "run a routine",
+    "command": "run {slot} routine",
+    "examples": [
+      "run {slot} routine",
+      "start {slot} routine",
+      "begin {slot} routine",
+      "run my {slot} routine",
+      "open {slot} routine",
+      "{slot} routine shuru karo"
+    ]
+  },
+  "lock_computer": {
+    "label": "lock the computer",
+    "command": "lock computer",
+    "examples": [
+      "lock computer",
+      "lock my pc",
+      "lock the screen",
+      "lock my laptop",
+      "lock pc",
+      "computer lock karo"
+    ]
+  },
+  "greeting": {
+    "label": "say hello",
+    "command": "hello",
+    "examples": [
+      "hello",
+      "hi",
+      "hey there",
+      "good morning",
+      "good evening",
+      "namaste"
+    ]
+  },
+  "help": {
+    "label": "show what I can do",
+    "command": "help",
+    "examples": [
+      "help",
+      "what can you do",
+      "show commands",
+      "what are your commands",
+      "madad karo"
+    ]
+  },
+  "change_voice": {
+    "label": "change my voice",
+    "command": "change voice",
+    "examples": [
+      "change voice",
+      "change your voice",
+      "use a different voice",
+      "switch voice",
+      "next voice"
+    ]
+  },
+  "speak_faster": {
+    "label": "speak faster",
+    "command": "speak faster",
+    "examples": [
+      "speak faster",
+      "talk faster",
+      "speed up your voice",
+      "tez bolo"
+    ]
+  },
+  "speak_slower": {
+    "label": "speak slower",
+    "command": "speak slower",
+    "examples": [
+      "speak slower",
+      "talk slower",
+      "slow down your voice",
+      "dheere bolo"
+    ]
+  }
+}

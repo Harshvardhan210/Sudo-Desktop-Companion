@@ -17,6 +17,7 @@ from features.routines import routines
 from assistant.voice_input import strip_wake_word
 
 from assistant import audio_devices, hindi_commands, wake_mode
+from assistant.brain import brain
 
 from assistant.voice_output import (
     next_voice,
@@ -86,7 +87,28 @@ def _run_routine(reply):
     )
 
 
+def _brain_run(command):
+    """Run a command the brain worked out (it may not ask the brain again)."""
+
+    return _process(command, {}, allow_brain=False)
+
+
 def process_command(command):
+    """Understand one command and do it. Also counts how often you use each action."""
+
+    context = {}
+    result = _process(command, context, allow_brain=True)
+
+    action_text = context.get("action_text")
+
+    if (action_text and not getattr(result, "brain_ask", False)
+            and not str(result).startswith("Sorry, I don't understand")):
+        brain.record_usage(action_text)
+
+    return result
+
+
+def _process(command, context, allow_brain):
     global pending_action
 
     original = command.strip()
@@ -111,6 +133,10 @@ def process_command(command):
     if todos.has_pending():
         return todos.handle_pending(without_wake if heard_wake else original)
 
+    # The assistant asked what you meant / what to answer: this reply is the answer.
+    if allow_brain and brain.has_pending():
+        return brain.handle_pending(without_wake if heard_wake else original, _brain_run)
+
     # -----------------------------
     # HINDI / HINGLISH: turn it into the English command first
     # -----------------------------
@@ -126,6 +152,26 @@ def process_command(command):
             original = translated
             without_wake = translated
             command = translated.lower()
+
+    # -----------------------------
+    # BRAIN: call X Y / forget ... / my habits / nicknames
+    # -----------------------------
+
+    if not (in_session and not heard_wake):
+        brain_reply = brain.handle_management(without_wake if heard_wake else original)
+
+        if brain_reply is not None:
+            return brain_reply
+
+        # Nicknames: "open browser" -> "open chrome"
+        expanded = brain.expand_aliases(without_wake if heard_wake else original)
+
+        if expanded != (without_wake if heard_wake else original):
+            original = expanded
+            without_wake = expanded
+            command = expanded.lower()
+
+        context["action_text"] = (without_wake if heard_wake else original).lower()
 
     # -----------------------------
     # ROUTINES (create routine / run work routine / close work routine)
@@ -305,6 +351,12 @@ NOTES:
 - Delete last point
 - Cancel notes
 
+BRAIN (it learns from you):
+- Call chrome as browser (a nickname)
+- Forget <question> / Forget alias browser
+- My habits / What have you learned / Show aliases
+- Ask something I don't know: I'll ask for the answer and remember it
+
 HINDI AND ENGLISH (with or without sudo):
 - Volume ko kam karo / Awaaz badhao
 - Notepad kholo / Chrome band karo
@@ -479,4 +531,9 @@ EXIT:
         return "Goodbye!"
 
     else:
+        if allow_brain:
+            # Not a command I know: understand it from what I have learned,
+            # or ask you (and learn the answer).
+            return brain.handle_unknown(without_wake if heard_wake else original, _brain_run)
+
         return "Sorry, I don't understand that command."

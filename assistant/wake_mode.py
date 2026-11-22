@@ -19,6 +19,7 @@ import re
 from pathlib import Path
 
 from assistant import hindi_commands
+from assistant.brain import brain
 
 
 SETTINGS_FILE = Path(__file__).with_name("wake_settings.json")
@@ -33,7 +34,8 @@ MAX_WORDS_WITHOUT_WAKE = 9
 
 # These always need "sudo"
 _NEEDS_WAKE = re.compile(
-    r"\b(shut\s?down|restart|reboot|delete|remove|clear|kill|terminate|force|confirm|erase)\b"
+    r"\b(shut\s?down|restart|reboot|delete|remove|clear|kill|terminate|force|confirm|erase|"
+    r"call|forget)\b"
 )
 _NEEDS_WAKE_EXACT = {"hello", "hi", "hey", "help"}
 
@@ -137,4 +139,8 @@ def looks_like_command(text):
     if translated:
         return True
 
-    return any(pattern.match(candidate) for pattern in _ENGLISH_COMMANDS)
+    if any(pattern.match(candidate) for pattern in _ENGLISH_COMMANDS):
+        return True
+
+    # Something the brain has learned (a taught question, or a way of saying an action)
+    return brain.recognizes(candidate)
